@@ -1,73 +1,28 @@
 Java.perform(function () {
-    // Hàm hỗ trợ ghi log ra file
-    function writeToLogFile(message) {
-        try {
-            // Đường dẫn đến file log
-            var logFilePath = "/storage/emulated/0/Podcasts/sleep_debug_log.txt";
-
-            // Lấy thời gian hiện tại để thêm timestamp vào log
-            var currentDate = new Date();
-            var timestamp = currentDate.toLocaleString();
-
-            // Tạo nội dung log với timestamp
-            var logContent = "[" + timestamp + "] " + message + "\n";
-
-            // Kiểm tra quyền đọc/ghi bộ nhớ ngoài
-            var Environment = Java.use("android.os.Environment");
-            var File = Java.use("java.io.File");
-            var FileOutputStream = Java.use("java.io.FileOutputStream");
-            var OutputStreamWriter = Java.use("java.io.OutputStreamWriter");
-            var BufferedWriter = Java.use("java.io.BufferedWriter");
-
-            // Kiểm tra trạng thái bộ nhớ ngoài
-            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                // Tạo thư mục nếu chưa tồn tại
-                var logDir = new File("/storage/emulated/0/Podcasts");
-                if (!logDir.exists()) {
-                    logDir.mkdirs();
-                }
-
-                // Tạo file log nếu chưa tồn tại
-                var logFile = new File(logFilePath);
-
-                // Mở file để ghi (append mode)
-                var fos = new FileOutputStream(logFile, true);
-                var osw = new OutputStreamWriter(fos);
-                var bw = new BufferedWriter(osw);
-
-                // Ghi nội dung log
-                bw.write(logContent);
-
-                // Đóng file
-                bw.close();
-                osw.close();
-                fos.close();
-
-                // Ghi thành công
-                return true;
-            } else {
-                console.log("[-] Không thể ghi log: Bộ nhớ ngoài không khả dụng");
-                return false;
-            }
-        } catch (e) {
-            console.log("[-] Lỗi khi ghi log: " + e.message);
-            return false;
-        }
+    // Sử dụng cách tiếp cận đơn giản nhất: chỉ sử dụng console.log
+    // Không cố gắng ghi ra file vì gây ra nhiều vấn đề
+    
+    // Lưu trữ log vào bộ nhớ để có thể xuất ra sau này nếu cần
+    var logHistory = [];
+    
+    // Hàm để ghi log
+    function log(message) {
+        // Lấy thời gian hiện tại
+        var currentDate = new Date();
+        var timestamp = currentDate.toLocaleString();
+        
+        // Tạo nội dung log với timestamp
+        var logEntry = "[" + timestamp + "] " + message;
+        
+        // Lưu vào bộ nhớ
+        logHistory.push(logEntry);
+        
+        // Hiển thị trên console
+        console.log(logEntry);
     }
 
-    var originalConsoleLog = console.log;
-
-    // Ghi đè hàm console.log để tự động ghi ra file
-    console.log = function (message) {
-        // Gọi hàm console.log gốc
-        originalConsoleLog(message);
-
-        // Ghi ra file
-        writeToLogFile(message);
-    };
-
     console.log("[+] Script debug luồng dữ liệu giấc ngủ đã được tải");
-    console.log("[+] Đã thiết lập ghi log ra file: /storage/emulated/0/Podcasts/sleep_debug_log.txt");
+    console.log("[+] Đã thiết lập ghi log vào bộ nhớ");
 
     try {
         // 1. DEBUG PHƯƠNG THỨC YÊU CẦU DỮ LIỆU GIẤC NGỦ TỪ THIẾT BỊ
@@ -100,10 +55,10 @@ Java.perform(function () {
             if (YCBTClient.healthHistorySync) {
                 YCBTClient.healthHistorySync.overload('int', 'com.yucheng.ycbtsdk.response.BleDataResponse').implementation = function (type, response) {
                     console.log("\n[+] YCBTClient.healthHistorySync() được gọi");
-                    console.log("    └── Tham số đầu vào: type = " + type);
+                    console.log("    └─ Tham số đầu vào: type = " + type);
 
                     var result = this.healthHistorySync(type, response);
-                    console.log("    └── Kết quả trả về: " + result);
+                    console.log("    └─ Kết quả trả về: " + result);
                     return result;
                 };
                 console.log("[+] Đã hook YCBTClient.healthHistorySync()");
@@ -113,19 +68,30 @@ Java.perform(function () {
             if (YCBTClient.deleteHealthHistoryData) {
                 YCBTClient.deleteHealthHistoryData.overload('int', 'com.yucheng.ycbtsdk.response.BleDataResponse').implementation = function (type, response) {
                     console.log("\n[+] YCBTClient.deleteHealthHistoryData() được gọi");
-                    console.log("    └── Tham số đầu vào: type = " + type);
+                    console.log("    └─ Tham số đầu vào: type = " + type);
 
                     // Kiểm tra nếu là yêu cầu xóa dữ liệu giấc ngủ (type = 4)
                     if (type === 4) {
-                        console.log("    └── ĐÃ CHẶN XÓA DỮ LIỆU GIẤC NGỦ!");
-                        return true;
+                        console.log("    └─ ĐÃ CHẶN XÓA DỮ LIỆU GIẤC NGỦ!");
+                        // Gọi phương thức gốc với một loại dữ liệu không tồn tại để tránh xóa
+                        this.deleteHealthHistoryData(9999, response);
+                        return;
+                    }
+                    
+                    // Kiểm tra nếu là yêu cầu xóa dữ liệu nhẫn (type từ 1344 đến 1348)
+                    if (type >= 1344 && type <= 1348) {
+                        console.log("    └─ ĐÃ CHẶN XÓA DỮ LIỆU NHẪN (type = " + type + ")!");
+                        // Gọi phương thức gốc với một loại dữ liệu không tồn tại để tránh xóa
+                        this.deleteHealthHistoryData(9999, response);
+                        return;
                     }
 
-                    var result = this.deleteHealthHistoryData(type, response);
-                    console.log("    └── Kết quả trả về: " + result);
-                    return result;
+                    // Gọi phương thức gốc cho các loại dữ liệu khác
+                    this.deleteHealthHistoryData(type, response);
+                    console.log("    └─ Đã gọi xóa dữ liệu loại: " + type);
+                    return;
                 };
-                console.log("[+] Đã hook YCBTClient.deleteHealthHistoryData() với chức năng chặn xóa dữ liệu giấc ngủ");
+                console.log("[+] Đã hook YCBTClient.deleteHealthHistoryData() với chức năng chặn xóa dữ liệu giấc ngủ và dữ liệu nhẫn");
             }
         } catch (e) {
             console.log("[-] Không thể hook YCBTClient: " + e.message);
@@ -166,11 +132,33 @@ Java.perform(function () {
                     if (result != null) {
                         var gson = Java.use('com.google.gson.Gson').$new();
                         try {
-                            var jsonString = gson.toJson(result);
-                            console.log("RAW: jsonString", jsonString)
+                            // Sử dụng phương thức toJson với đối tượng Java
+                            try {
+                                var jsonString = gson.toJson(result);
+                                console.log("RAW: jsonString " + jsonString);
+                            } catch (jsonError) {
+                                console.log("RAW: Không thể chuyển đổi thành JSON: " + jsonError.message);
+                                // Thử phương pháp khác
+                                try {
+                                    console.log("RAW: toString() " + result.toString());
+                                } catch (e) {}
+                            }
                             console.log("    └── Kết quả trả về (cấu trúc): ");
-                            console.log("        └── code: " + result.get("code"));
-                            console.log("        └── dataType: " + result.get("dataType"));
+                            
+                            // Sử dụng phương thức get() để truy cập các trường của HashMap
+                            try {
+                                console.log("        └── code: " + result.get("code"));
+                                console.log("        └── dataType: " + result.get("dataType"));
+                            } catch (fieldError) {
+                                console.log("        └── Không thể truy cập trường code/dataType: " + fieldError.message);
+                                // Thử cách truy cập khác
+                                try {
+                                    console.log("        └── code (thuộc tính): " + result.code);
+                                    console.log("        └── dataType (thuộc tính): " + result.dataType);
+                                } catch (e) {
+                                    console.log("        └── Không thể truy cập thuộc tính: " + e.message);
+                                }
+                            }
 
                             var data = result.get("data");
                             if (data != null) {
@@ -178,14 +166,28 @@ Java.perform(function () {
                                 if (data.size() > 0) {
                                     console.log("        └── Bản ghi đầu tiên: ");
                                     var firstRecord = data.get(0);
-                                    console.log("            └── startTime: " + firstRecord.get("startTime"));
-                                    console.log("            └── endTime: " + firstRecord.get("endTime"));
-                                    console.log("            └── deepSleepTotal: " + firstRecord.get("deepSleepTotal"));
-                                    console.log("            └── lightSleepTotal: " + firstRecord.get("lightSleepTotal"));
+                                    
+                                    // In ra các trường cơ bản của bản ghi đầu tiên
+                                    try {
+                                        // Thử với các trường thông dụng của dữ liệu giấc ngủ
+                                        console.log("            └── Thông tin chi tiết (trường phổ biến): ");
+                                        
+                                        // Thử lấy các trường phổ biến bằng các phương thức khác nhau
+                                        try { console.log("            └── startTime: " + firstRecord.startTime); } catch(e) {}
+                                        try { console.log("            └── startTime (get): " + firstRecord.get("startTime")); } catch(e) {}
+                                        try { console.log("            └── endTime: " + firstRecord.endTime); } catch(e) {}
+                                        try { console.log("            └── endTime (get): " + firstRecord.get("endTime")); } catch(e) {}
+                                        try { console.log("            └── deepSleepTotal: " + firstRecord.deepSleepTotal); } catch(e) {}
+                                        try { console.log("            └── deepSleepTotal (get): " + firstRecord.get("deepSleepTotal")); } catch(e) {}
+                                        try { console.log("            └── lightSleepTotal: " + firstRecord.lightSleepTotal); } catch(e) {}
+                                        try { console.log("            └── lightSleepTotal (get): " + firstRecord.get("lightSleepTotal")); } catch(e) {}
+                                    } catch (innerError) {
+                                        console.log("            └── Không thể hiển thị chi tiết: " + innerError.message);
+                                    }
                                 }
                             }
                         } catch (e) {
-                            console.log("    └── Không thể chuyển đổi kết quả sang JSON: " + e.message);
+                            console.log("    └── Không thể xử lý kết quả: " + e.message + "\n" + e.stack);
                         }
                     } else {
                         console.log("    └── Kết quả trả về: null");
@@ -336,16 +338,16 @@ Java.perform(function () {
                     console.log("\n[+] SleepActivity.setDayData() được gọi");
 
                     if (this.mLists != null) {
-                        console.log("    └── Dữ liệu đầu vào: mLists.size() = " + this.mLists.size());
+                        console.log("    └─ Dữ liệu đầu vào: mLists.size() = " + this.mLists.size());
                     }
 
                     this.setDayData();
 
-                    console.log("    └── Kết quả sau khi xử lý:");
-                    console.log("        └── mDaySleepDeepSleepTotal = " + this.mDaySleepDeepSleepTotal);
-                    console.log("        └── mDaySleepLightSleepTotal = " + this.mDaySleepLightSleepTotal);
-                    console.log("        └── mDaySleepRemTotal = " + this.mDaySleepRemTotal);
-                    console.log("        └── mDaySleepWakeCount = " + this.mDaySleepWakeCount);
+                    console.log("    └─ Kết quả sau khi xử lý:");
+                    console.log("        └─ mDaySleepDeepSleepTotal = " + this.mDaySleepDeepSleepTotal);
+                    console.log("        └─ mDaySleepLightSleepTotal = " + this.mDaySleepLightSleepTotal);
+                    console.log("        └─ mDaySleepRemTotal = " + this.mDaySleepRemTotal);
+                    console.log("        └─ mDaySleepWakeCount = " + this.mDaySleepWakeCount);
                 };
                 console.log("[+] Đã hook SleepActivity.setDayData()");
             }
@@ -354,17 +356,17 @@ Java.perform(function () {
             if (SleepActivity.getDaySleepData) {
                 SleepActivity.getDaySleepData.implementation = function (str, i2) {
                     console.log("\n[+] SleepActivity.getDaySleepData() được gọi");
-                    console.log("    └── Tham số đầu vào:");
-                    console.log("        └── str (date) = " + str);
-                    console.log("        └── i2 = " + i2);
+                    console.log("    └─ Tham số đầu vào:");
+                    console.log("        └─ str (date) = " + str);
+                    console.log("        └─ i2 = " + i2);
 
                     this.getDaySleepData(str, i2);
 
-                    console.log("    └── Kết quả sau khi xử lý:");
+                    console.log("    └─ Kết quả sau khi xử lý:");
                     if (this.mSleepDb != null) {
-                        console.log("        └── mSleepDb.size() = " + this.mSleepDb.size());
+                        console.log("        └─ mSleepDb.size() = " + this.mSleepDb.size());
                     }
-                    console.log("        └── mDaySleepAdapterHisListBean.size() = " + this.mDaySleepAdapterHisListBean.size());
+                    console.log("        └─ mDaySleepAdapterHisListBean.size() = " + this.mDaySleepAdapterHisListBean.size());
                 };
                 console.log("[+] Đã hook SleepActivity.getDaySleepData()");
             }
@@ -373,20 +375,20 @@ Java.perform(function () {
             if (SleepActivity.parseSleepData) {
                 SleepActivity.parseSleepData.implementation = function (str, i2) {
                     console.log("\n[+] SleepActivity.parseSleepData() được gọi");
-                    console.log("    └── Tham số đầu vào:");
-                    console.log("        └── i2 = " + i2);
+                    console.log("    └─ Tham số đầu vào:");
+                    console.log("        └─ i2 = " + i2);
 
                     this.parseSleepData(str, i2);
 
-                    console.log("    └── Kết quả sau khi xử lý:");
+                    console.log("    └─ Kết quả sau khi xử lý:");
                     if (i2 == 7) {
-                        console.log("        └── mWeekSleepAverageDeepSleepTotal = " + this.mWeekSleepAverageDeepSleepTotal);
-                        console.log("        └── mWeekSleepAverageLightSleepTotal = " + this.mWeekSleepAverageLightSleepTotal);
-                        console.log("        └── mWeekSleepAdapterHisListBean.size() = " + this.mWeekSleepAdapterHisListBean.size());
+                        console.log("        └─ mWeekSleepAverageDeepSleepTotal = " + this.mWeekSleepAverageDeepSleepTotal);
+                        console.log("        └─ mWeekSleepAverageLightSleepTotal = " + this.mWeekSleepAverageLightSleepTotal);
+                        console.log("        └─ mWeekSleepAdapterHisListBean.size() = " + this.mWeekSleepAdapterHisListBean.size());
                     } else if (i2 == 30) {
-                        console.log("        └── mMonthSleepAverageDeepSleepTotal = " + this.mMonthSleepAverageDeepSleepTotal);
-                        console.log("        └── mMonthSleepAverageLightSleepTotal = " + this.mMonthSleepAverageLightSleepTotal);
-                        console.log("        └── mMonthSleepAdapterHisListBean.size() = " + this.mMonthSleepAdapterHisListBean.size());
+                        console.log("        └─ mMonthSleepAverageDeepSleepTotal = " + this.mMonthSleepAverageDeepSleepTotal);
+                        console.log("        └─ mMonthSleepAverageLightSleepTotal = " + this.mMonthSleepAverageLightSleepTotal);
+                        console.log("        └─ mMonthSleepAdapterHisListBean.size() = " + this.mMonthSleepAdapterHisListBean.size());
                     }
                 };
                 console.log("[+] Đã hook SleepActivity.parseSleepData()");
@@ -534,4 +536,89 @@ Java.perform(function () {
                 return "Không rõ (" + sleepType + ")";
         }
     }
+    
+    // Hàm xuất log ra console để copy/paste
+    function exportLogToConsole() {
+        try {
+            console.log("\n\n=================== BẮT ĐẦU LOG ===================\n");
+            
+            // Hiển thị tất cả log đã lưu trữ
+            for (var i = 0; i < logHistory.length; i++) {
+                console.log(logHistory[i]);
+            }
+            
+            console.log("\n=================== KẾT THÚC LOG ===================\n");
+            console.log("[✓] Đã xuất " + logHistory.length + " dòng log ra console");
+            console.log("[✓] Hãy copy/paste toàn bộ log vào file văn bản để lưu trữ");
+            
+            return true;
+        } catch (e) {
+            console.log("[!] Lỗi khi xuất log: " + e.message);
+            return false;
+        }
+    }
+    
+    // Hàm xuất log ra file trên PC (sử dụng Frida API)
+    function exportLogToPC() {
+        try {
+            // Tạo nội dung log
+            var logContent = "";
+            for (var i = 0; i < logHistory.length; i++) {
+                logContent += logHistory[i] + "\n";
+            }
+            
+            // Gửi lệnh xuất log qua Frida API
+            send({"type": "save_log", "data": logContent});
+            console.log("[✓] Đã gửi yêu cầu lưu log về PC");
+            console.log("[✓] Hãy chạy script Python đi kèm để lưu file");
+            return true;
+        } catch (e) {
+            console.log("[!] Lỗi khi xuất log về PC: " + e.message);
+            return false;
+        }
+    }
+    
+    // Hàm xuất log ra file trên điện thoại (sử dụng Android API)
+    function exportLogToAndroid() {
+        try {
+            // Đường dẫn đến file log
+            var logFilePath = "/sdcard/sleep_debug_log.txt";
+            
+            // Sử dụng Java FileWriter (API đơn giản hơn)
+            var FileWriter = Java.use("java.io.FileWriter");
+            var writer = FileWriter.$new(logFilePath, false); // false = ghi đè, không append
+            
+            // Ghi tất cả log vào file
+            for (var i = 0; i < logHistory.length; i++) {
+                writer.write(logHistory[i] + "\n");
+            }
+            
+            // Đóng file
+            writer.close();
+            
+            console.log("[✓] Đã xuất " + logHistory.length + " dòng log ra file: " + logFilePath);
+            return true;
+        } catch (e) {
+            console.log("[!] Lỗi khi xuất log ra Android: " + e.message);
+            return false;
+        }
+    }
+    
+    // Tạo các hàm global để xuất log
+    global.exportLogs = function() {
+        exportLogToConsole();
+    };
+    
+    global.saveLogToPC = function() {
+        exportLogToPC();
+    };
+    
+    global.saveLogToAndroid = function() {
+        exportLogToAndroid();
+    };
+    
+    // Hướng dẫn sử dụng
+    console.log("[+] Để xuất log ra console, gọi: exportLogs()");
+    console.log("[+] Để lưu log vào file trên PC, gọi: saveLogToPC()");
+    console.log("[+] Để lưu log vào file trên Android, gọi: saveLogToAndroid()");
 });

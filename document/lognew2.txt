@@ -1,0 +1,296 @@
+[+] DataUnpack.unpackHealthData() được gọi
+    └── Tham số đầu vào:
+        └── i2 (loại dữ liệu) = 2
+        └── bArr.length = 14
+        └── Dữ liệu đầy đủ:
+            80 de 9e 2f 88 e5 9e 2f 7d 00 4f 00 05 00
+RAW: jsonString {"code":0,"data":[{"sportEndTime":1745602200000,"sportStep":125,"sportDistance":79,"sportStartTime":1745600400000,"sportCalorie":5}],"dataType":1282}
+    └── Kết quả trả về (cấu trúc):
+        └── code: 0
+        └── dataType: 1282
+    └── Không thể xử lý kết quả: not a function
+TypeError: not a function
+    at <anonymous> (C:\Users\Le Minh Tuan\Downloads\frida\debug_log.js:146)
+    at apply (native)
+    at re (frida/node_modules/frida-java-bridge/lib/class-factory.js:677)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/class-factory.js:655)
+
+[+] YCBTClient.deleteHealthHistoryData() được gọi
+    └─ Tham số đầu vào: type = 1344
+    └─ ĐÃ CHẶN XÓA DỮ LIỆU NHẪN (type = 1344)!
+
+[+] DataUnpack.unpackHealthData() được gọi
+    └── Tham số đầu vào:
+        └── i2 (loại dữ liệu) = 4
+        └── bArr.length = 424
+        └── Dữ liệu đầy đủ:
+            af fa 54 00 7e f1 9e 2f c1 01 9f 2f ff ff 3e 01 c4 01 3d 0d
+                        f2 7e f1 9e 2f 4c 05 00 f1 cb f6 9e 2f 50 01 00 f3 1c f8 9e
+                        2f fb 00 00 f2 18 f9 9e 2f 46 03 00 f3 5f fc 9e 2f 43 00 00
+                        f2 a2 fc 9e 2f 94 04 00 f1 36 01 9f 2f 74 00 00 f2 aa 01 9f
+                        2f 17 00 00 af fa 54 01 e5 01 9f 2f c8 57 9f 2f ff ff 0f 0e
+                        9d 0d 24 3a f2 e5 01 9f 2f 0a 05 00 f1 f0 06 9f 2f bf 01 00
+                        f3 b0 08 9f 2f df 00 00 f2 90 09 9f 2f b3 02 00 f3 44 0c 9f
+                        2f 04 01 00 f2 48 0d 9f 2f 25 05 00 f1 6d 12 9f 2f 64 00 00
+                        f3 d1 12 9f 2f 1d 01 00 f2 ee 13 9f 2f 7b 06 00 f1 69 1a 9f
+                        2f 63 00 00 f2 cc 1a 9f 2f d4 00 00 f3 a0 1b 9f 2f 5b 00 00
+                        f2 fb 1b 9f 2f e5 04 00 f1 e1 20 9f 2f 72 01 00 f3 54 22 9f
+                        2f b8 01 00 f2 0d 24 9f 2f 8b 00 00 f3 99 24 9f 2f 3d 00 00
+                        f2 d6 24 9f 2f 82 04 00 f1 59 29 9f 2f 47 01 00 f3 a1 2a 9f
+                        2f de 00 00 f2 80 2b 9f 2f f6 02 00 f3 77 2e 9f 2f de 00 00
+                        f2 55 2f 9f 2f 4f 05 00 f1 a5 34 9f 2f c0 01 00 f3 66 36 9f
+                        2f cc 01 00 f2 33 38 9f 2f e0 01 00 f3 14 3a 9f 2f 57 00 00
+                        f2 6b 3a 9f 2f af 02 00 f3 1a 3d 9f 2f 16 02 00 f2 30 3f 9f
+                        2f 75 00 00 f3 a5 3f 9f 2f c5 00 00 f2 6a 40 9f 2f 04 00 00
+                        f3 6e 40 9f 2f 60 00 00 f2 ce 40 9f 2f 46 05 00 f1 15 46 9f
+                        2f cc 00 00 f3 e2 46 9f 2f 68 01 00 f1 4b 48 9f 2f d2 05 00
+                        f2 1d 4e 9f 2f fe 05 00 f3 1b 54 9f 2f 3d 00 00 f2 58 54 9f
+                        2f 70 03 00
+RAW: jsonString {"code":0,"data":[{"wakeCount":0,"deepSleepCount":65535,"rapidEyeMovementTotal":318,"lightSleepCount":0,"wakeDuration":0,"sleepData":[{"sleepStartTime":1745605262000,"sleepLen":1356,"sleepType":242},{"sleepStartTime":1745606619000,"sleepLen":336,"sleepType":241},{"sleepStartTime":1745606956000,"sleepLen":251,"sleepType":243},{"sleepStartTime":1745607208000,"sleepLen":838,"sleepType":242},{"sleepStartTime":1745608047000,"sleepLen":67,"sleepType":243},{"sleepStartTime":1745608114000,"sleepLen":1172,"sleepType":242},{"sleepStartTime":1745609286000,"sleepLen":116,"sleepType":241},{"sleepStartTime":1745609402000,"sleepLen":23,"sleepType":242}],"startTime":1745605262000,"lightSleepTotal":3389,"endTime":1745609425000,"deepSleepTotal":452},{"wakeCount":0,"deepSleepCount":65535,"rapidEyeMovementTotal":3599,"lightSleepCount":0,"wakeDuration":0,"sleepData":[{"sleepStartTime":1745609461000,"sleepLen":1290,"sleepType":242},{"sleepStartTime":1745610752000,"sleepLen":447,"sleepType":241},{"sleepStartTime":1745611200000,"sleepLen":223,"sleepType":243},{"sleepStartTime":1745611424000,"sleepLen":691,"sleepType":242},{"sleepStartTime":1745612116000,"sleepLen":260,"sleepType":243},{"sleepStartTime":1745612376000,"sleepLen":1317,"sleepType":242},{"sleepStartTime":1745613693000,"sleepLen":100,"sleepType":241},{"sleepStartTime":1745613793000,"sleepLen":285,"sleepType":243},{"sleepStartTime":1745614078000,"sleepLen":1659,"sleepType":242},{"sleepStartTime":1745615737000,"sleepLen":99,"sleepType":241},{"sleepStartTime":1745615836000,"sleepLen":212,"sleepType":242},{"sleepStartTime":1745616048000,"sleepLen":91,"sleepType":243},{"sleepStartTime":1745616139000,"sleepLen":1253,"sleepType":242},{"sleepStartTime":1745617393000,"sleepLen":370,"sleepType":241},{"sleepStartTime":1745617764000,"sleepLen":440,"sleepType":243},{"sleepStartTime":1745618205000,"sleepLen":139,"sleepType":242},{"sleepStartTime":1745618345000,"sleepLen":61,"sleepType":243},{"sleepStartTime":1745618406000,"sleepLen":1154,"sleepType":242},{"sleepStartTime":1745619561000,"sleepLen":327,"sleepType":241},{"sleepStartTime":1745619889000,"sleepLen":222,"sleepType":243},{"sleepStartTime":1745620112000,"sleepLen":758,"sleepType":242},{"sleepStartTime":1745620871000,"sleepLen":222,"sleepType":243},{"sleepStartTime":1745621093000,"sleepLen":1359,"sleepType":242},{"sleepStartTime":1745622453000,"sleepLen":448,"sleepType":241},{"sleepStartTime":1745622902000,"sleepLen":460,"sleepType":243},{"sleepStartTime":1745623363000,"sleepLen":480,"sleepType":242},{"sleepStartTime":1745623844000,"sleepLen":87,"sleepType":243},{"sleepStartTime":1745623931000,"sleepLen":687,"sleepType":242},{"sleepStartTime":1745624618000,"sleepLen":534,"sleepType":243},{"sleepStartTime":1745625152000,"sleepLen":117,"sleepType":242},{"sleepStartTime":1745625269000,"sleepLen":197,"sleepType":243},{"sleepStartTime":1745625466000,"sleepLen":4,"sleepType":242},{"sleepStartTime":1745625470000,"sleepLen":96,"sleepType":243},{"sleepStartTime":1745625566000,"sleepLen":1350,"sleepType":242},{"sleepStartTime":1745626917000,"sleepLen":204,"sleepType":241},{"sleepStartTime":1745627122000,"sleepLen":360,"sleepType":243},{"sleepStartTime":1745627483000,"sleepLen":1490,"sleepType":241},{"sleepStartTime":1745628973000,"sleepLen":1534,"sleepType":242},{"sleepStartTime":1745630507000,"sleepLen":61,"sleepType":243},{"sleepStartTime":1745630568000,"sleepLen":880,"sleepType":242}],"startTime":1745609461000,"lightSleepTotal":14884,"endTime":1745631448000,"deepSleepTotal":3485}],"dataType":1284}
+    └── Kết quả trả về (cấu trúc):
+        └── code: 0
+        └── dataType: 1284
+    └── Không thể xử lý kết quả: not a function
+TypeError: not a function
+    at <anonymous> (C:\Users\Le Minh Tuan\Downloads\frida\debug_log.js:146)
+    at apply (native)
+    at re (frida/node_modules/frida-java-bridge/lib/class-factory.js:677)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/class-factory.js:655)
+
+[+] SleepDbUtils.insertMsgModel() được gọi
+    └── Tham số đầu vào:
+        └── sleepDb.getStartTime(): 1745605262000
+        └── sleepDb.getEndTime(): 1745609425000
+        └── sleepDb.getDeepSleepTotal(): 452
+        └── sleepDb.getLightSleepTotal(): 3389
+        └── sleepDb.getTimeYearToDate(): 2025-04-26
+Error: expected an unsigned integer
+
+[+] SleepDbUtils.insertMsgModel() được gọi
+    └── Tham số đầu vào:
+        └── sleepDb.getStartTime(): 1745609461000
+        └── sleepDb.getEndTime(): 1745631448000
+        └── sleepDb.getDeepSleepTotal(): 3485
+        └── sleepDb.getLightSleepTotal(): 14884
+        └── sleepDb.getTimeYearToDate(): 2025-04-26
+Error: expected an unsigned integer
+
+[+] YCBTClient.deleteHealthHistoryData() được gọi
+    └─ Tham số đầu vào: type = 1345
+    └─ ĐÃ CHẶN XÓA DỮ LIỆU NHẪN (type = 1345)!
+
+[+] DataUnpack.unpackHealthData() được gọi
+    └── Tham số đầu vào:
+        └── i2 (loại dữ liệu) = 6
+        └── bArr.length = 54
+        └── Dữ liệu đầy đủ:
+            96 de 9e 2f 00 48 9e ec 9e 2f 00 58 ba fa 9e 2f 00 43 ca 08
+                        9f 2f 00 40 e4 16 9f 2f 00 3e fa 24 9f 2f 00 53 f8 32 9f 2f
+                        00 35 1a 41 9f 2f 00 3d 22 4f 9f 2f 00 3e
+RAW: jsonString {"code":0,"data":[{"heartValue":72,"heartStartTime":1745600422000},{"heartValue":88,"heartStartTime":1745604014000},{"heartValue":67,"heartStartTime":1745607626000},{"heartValue":64,"heartStartTime":1745611226000},{"heartValue":62,"heartStartTime":1745614836000},{"heartValue":83,"heartStartTime":1745618442000},{"heartValue":53,"heartStartTime":1745622024000},{"heartValue":61,"heartStartTime":1745625642000},{"heartValue":62,"heartStartTime":1745629234000}],"dataType":1286}
+    └── Kết quả trả về (cấu trúc):
+        └── code: 0
+        └── dataType: 1286
+    └── Không thể xử lý kết quả: not a function
+TypeError: not a function
+    at <anonymous> (C:\Users\Le Minh Tuan\Downloads\frida\debug_log.js:146)
+    at apply (native)
+    at re (frida/node_modules/frida-java-bridge/lib/class-factory.js:677)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/class-factory.js:655)
+
+[+] YCBTClient.deleteHealthHistoryData() được gọi
+    └─ Tham số đầu vào: type = 1346
+    └─ ĐÃ CHẶN XÓA DỮ LIỆU NHẪN (type = 1346)!
+
+[+] DataUnpack.unpackHealthData() được gọi
+    └── Tham số đầu vào:
+        └── i2 (loại dữ liệu) = 8
+        └── bArr.length = 72
+        └── Dữ liệu đầy đủ:
+            96 de 9e 2f 01 6e 48 48 9e ec 9e 2f 01 73 4b 58 ba fa 9e 2f
+                        01 6a 47 43 ca 08 9f 2f 01 6a 45 40 e4 16 9f 2f 01 6c 45 3e
+                        fa 24 9f 2f 01 71 4b 53 f8 32 9f 2f 01 65 44 35 1a 41 9f 2f
+                        01 68 45 3d 22 4f 9f 2f 01 69 46 3e
+RAW: jsonString {"code":0,"data":[{"bloodStartTime":1745600422000,"bloodDBP":72,"isInflated":1,"bloodSBP":110},{"bloodStartTime":1745604014000,"bloodDBP":75,"isInflated":1,"bloodSBP":115},{"bloodStartTime":1745607626000,"bloodDBP":71,"isInflated":1,"bloodSBP":106},{"bloodStartTime":1745611226000,"bloodDBP":69,"isInflated":1,"bloodSBP":106},{"bloodStartTime":1745614836000,"bloodDBP":69,"isInflated":1,"bloodSBP":108},{"bloodStartTime":1745618442000,"bloodDBP":75,"isInflated":1,"bloodSBP":113},{"bloodStartTime":1745622024000,"bloodDBP":68,"isInflated":1,"bloodSBP":101},{"bloodStartTime":1745625642000,"bloodDBP":69,"isInflated":1,"bloodSBP":104},{"bloodStartTime":1745629234000,"bloodDBP":70,"isInflated":1,"bloodSBP":105}],"dataType":1288}
+    └── Kết quả trả về (cấu trúc):
+        └── code: 0
+        └── dataType: 1288
+    └── Không thể xử lý kết quả: not a function
+TypeError: not a function
+    at <anonymous> (C:\Users\Le Minh Tuan\Downloads\frida\debug_log.js:146)
+    at apply (native)
+    at re (frida/node_modules/frida-java-bridge/lib/class-factory.js:677)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/class-factory.js:655)
+
+[+] YCBTClient.deleteHealthHistoryData() được gọi
+    └─ Tham số đầu vào: type = 1347
+    └─ ĐÃ CHẶN XÓA DỮ LIỆU NHẪN (type = 1347)!
+
+[+] DataUnpack.unpackHealthData() được gọi
+    └── Tham số đầu vào:
+        └── i2 (loại dữ liệu) = 9
+        └── bArr.length = 180
+        └── Dữ liệu đầy đủ:
+            96 de 9e 2f 00 00 48 6e 48 62 0e 2d 02 00 0f 00 00 00 10 23
+                        9e ec 9e 2f 7d 00 58 73 4b 62 12 25 06 00 0f 00 00 00 bd 8d
+                        ba fa 9e 2f 7d 00 43 6a 47 62 0d 2e 04 00 0f 00 00 00 72 31
+                        ca 08 9f 2f 7d 00 40 6a 45 61 0d 28 02 00 0f 00 00 00 b7 34
+                        e4 16 9f 2f 7d 00 3e 6c 45 60 0c 25 04 00 0f 00 00 00 77 65
+                        fa 24 9f 2f 7d 00 53 71 4b 62 11 28 05 00 0f 00 00 00 79 86
+                        f8 32 9f 2f 7d 00 35 65 44 5c 0b 2d 04 00 0f 00 00 00 d8 f7
+                        1a 41 9f 2f 7d 00 3d 68 45 60 0c 25 02 00 0f 00 00 00 ce 42
+                        22 4f 9f 2f 7d 00 3e 69 46 60 0c 27 02 00 0f 00 00 00 27 5d
+RAW: jsonString {"code":0,"data":[{"heartValue":72,"hrvValue":45,"cvrrValue":2,"stepValue":0,"DBPValue":72,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":98,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745600422000,"SBPValue":110,"respiratoryRateValue":14},{"heartValue":88,"hrvValue":37,"cvrrValue":6,"stepValue":125,"DBPValue":75,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":98,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745604014000,"SBPValue":115,"respiratoryRateValue":18},{"heartValue":67,"hrvValue":46,"cvrrValue":4,"stepValue":125,"DBPValue":71,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":98,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745607626000,"SBPValue":106,"respiratoryRateValue":13},{"heartValue":64,"hrvValue":40,"cvrrValue":2,"stepValue":125,"DBPValue":69,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":97,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745611226000,"SBPValue":106,"respiratoryRateValue":13},{"heartValue":62,"hrvValue":37,"cvrrValue":4,"stepValue":125,"DBPValue":69,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":96,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745614836000,"SBPValue":108,"respiratoryRateValue":12},{"heartValue":83,"hrvValue":40,"cvrrValue":5,"stepValue":125,"DBPValue":75,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":98,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745618442000,"SBPValue":113,"respiratoryRateValue":17},{"heartValue":53,"hrvValue":45,"cvrrValue":4,"stepValue":125,"DBPValue":68,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":92,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745622024000,"SBPValue":101,"respiratoryRateValue":11},{"heartValue":61,"hrvValue":37,"cvrrValue":2,"stepValue":125,"DBPValue":69,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":96,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745625642000,"SBPValue":104,"respiratoryRateValue":12},{"heartValue":62,"hrvValue":39,"cvrrValue":2,"stepValue":125,"DBPValue":70,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":96,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745629234000,"SBPValue":105,"respiratoryRateValue":12}],"dataType":1289}
+    └── Kết quả trả về (cấu trúc):
+        └── code: 0
+        └── dataType: 1289
+    └── Không thể xử lý kết quả: not a function
+TypeError: not a function
+    at <anonymous> (C:\Users\Le Minh Tuan\Downloads\frida\debug_log.js:146)
+    at apply (native)
+    at re (frida/node_modules/frida-java-bridge/lib/class-factory.js:677)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/class-factory.js:655)
+
+[+] YCBTClient.deleteHealthHistoryData() được gọi
+    └─ Tham số đầu vào: type = 1348
+    └─ ĐÃ CHẶN XÓA DỮ LIỆU NHẪN (type = 1348)!
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-26
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 3
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 3
+    └── Kết quả trả về: số lượng bản ghi = 3
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-25
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 2
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 2
+    └── Kết quả trả về: số lượng bản ghi = 2
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-26
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 3
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 3
+    └── Kết quả trả về: số lượng bản ghi = 3
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-25
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 2
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 2
+    └── Kết quả trả về: số lượng bản ghi = 2
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-26
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 3
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 3
+    └── Kết quả trả về: số lượng bản ghi = 3
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-25
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 2
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 2
+    └── Kết quả trả về: số lượng bản ghi = 2
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-26
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 3
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 3
+    └── Kết quả trả về: số lượng bản ghi = 3
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-25
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 2
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 2
+    └── Kết quả trả về: số lượng bản ghi = 2
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-26
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 3
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 3
+    └── Kết quả trả về: số lượng bản ghi = 3
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-25
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 2
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 2
+    └── Kết quả trả về: số lượng bản ghi = 2
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-26
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 3
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 3
+    └── Kết quả trả về: số lượng bản ghi = 3
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-25
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 2
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 2
+    └── Kết quả trả về: số lượng bản ghi = 2
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-26
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 3
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 3
+    └── Kết quả trả về: số lượng bản ghi = 3
+
+[+] SleepDbUtils.queryIdYearToDay() được gọi
+    └── Tham số đầu vào: date = 2025-04-25
+
+[+] SleepDbUtils.filter() được gọi
+    └── Tham số đầu vào:
+        └── list.size() trước khi lọc: 2
+    └── Kết quả trả về:
+        └── list.size() sau khi lọc: 2
+    └── Kết quả trả về: số lượng bản ghi = 2
