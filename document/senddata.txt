@@ -1,0 +1,108 @@
+ựa trên dữ liệu debug, tôi có thể phân tích cách ứng dụng gửi lệnh để lấy dữ liệu giấc ngủ từ nhẫn như sau:
+
+Cách ứng dụng gửi lệnh lấy dữ liệu giấc ngủ
+Từ log debug, chúng ta có thể thấy lệnh gửi đến nhẫn để lấy dữ liệu giấc ngủ như sau:
+
+CopyInsert
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 1284 (0x0504)
+        └─ data.length = 0
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 05 04
+        └─ Độ dài gói: 6 bytes
+    └─ YÊU CẦU DỮ LIỆU GIẤC NGỦ (Health_HistorySleep)
+    └─ Mô tả gói dữ liệu:
+        └─ 2 byte đầu: dataType (1284 = 0x0504)
+        └─ 2 byte tiếp: độ dài gói dữ liệu (bao gồm header và CRC)
+        └─ Dữ liệu (rỗng trong trường hợp này)
+        └─ 2 byte cuối: CRC16 để kiểm tra tính toàn vẹn
+    └─ Cấu trúc gói dữ liệu chi tiết:
+        └─ Byte 0: 05 (High byte của dataType)
+        └─ Byte 1: 04 (Low byte của dataType)
+        └─ Byte 2: 06 (Low byte của length)
+        └─ Byte 3: 00 (High byte của length)
+        └─ Không có dữ liệu
+        └─ Byte 4: Low byte của CRC16
+        └─ Byte 5: High byte của CRC16
+    └─ Đã gửi dữ liệu đến thiết bị
+Chi tiết gói dữ liệu:
+Loại dữ liệu (dataType): 1284 (0x0504) - Đây là mã lệnh để yêu cầu dữ liệu giấc ngủ (Health_HistorySleep)
+Độ dài gói: 6 bytes - Bao gồm:
+2 byte header (0x05 0x04)
+2 byte độ dài (0x06 0x00)
+2 byte CRC16
+Dữ liệu: Không có dữ liệu (data.length = 0) - Chỉ là lệnh yêu cầu đơn giản
+Cấu trúc gói dữ liệu hoàn chỉnh:
+CopyInsert
+05 04 06 00 [CRC_LOW] [CRC_HIGH]
+Trong đó:
+
+05 04: Mã lệnh yêu cầu dữ liệu giấc ngủ (0x0504 = 1284)
+06 00: Độ dài gói dữ liệu (6 bytes)
+[CRC_LOW] [CRC_HIGH]: 2 byte CRC16 để kiểm tra tính toàn vẹn dữ liệu
+Phản hồi từ nhẫn:
+Sau khi gửi lệnh, nhẫn đã trả về dữ liệu giấc ngủ và được giải mã bởi phương thức unpackHealthData:
+
+CopyInsert
+[+] DataUnpack.unpackHealthData() được gọi
+    └── Tham số đầu vào:
+        └── i2 (loại dữ liệu) = 4
+        └── bArr.length = 212
+        └── Dữ liệu đầy đủ:
+            af fa d4 00 a2 4d a0 2f 36 87 a0 2f ff ff e7 09 f8 0a a1 24
+                        f2 a2 4d a0 2f f9 04 00 f1 9c 52 a0 2f 5b 01 00 f3 f8 53 a0
+                        2f 73 01 00 f2 6c 55 a0 2f ec 04 00 f1 59 5a a0 2f 24 01 00
+                        ...
+Kết quả sau khi giải mã:
+Dữ liệu giấc ngủ được giải mã thành JSON có cấu trúc:
+
+json
+CopyInsert
+{
+  "code": 0,
+  "data": [{
+    "wakeCount": 0,
+    "deepSleepCount": 65535,
+    "rapidEyeMovementTotal": 2535,
+    "lightSleepCount": 0,
+    "wakeDuration": 0,
+    "sleepData": [
+      {"sleepStartTime": 1745694386000, "sleepLen": 1273, "sleepType": 242},
+      {"sleepStartTime": 1745695660000, "sleepLen": 347, "sleepType": 241},
+      {"sleepStartTime": 1745696008000, "sleepLen": 371, "sleepType": 243},
+      ...
+    ],
+    "startTime": 1745694386000,
+    "lightSleepTotal": 9377,
+    "endTime": 1745709126000,
+    "deepSleepTotal": 2808
+  }],
+  "dataType": 1284
+}
+Quy trình tổng thể:
+Ứng dụng gọi healthHistoryData(1284, bleDataResponse) để yêu cầu dữ liệu giấc ngủ
+Phương thức này gọi đến YCBTClientImpl.sendDataType2Device(1284, 3, new byte[0], 2, bleDataResponse)
+Lệnh được đóng gói thành gói dữ liệu BLE với định dạng: 05 04 06 00 [CRC_LOW] [CRC_HIGH]
+Gói dữ liệu được gửi đến nhẫn qua Bluetooth
+Nhẫn phản hồi với dữ liệu giấc ngủ (212 bytes)
+Dữ liệu được giải mã bởi DataUnpack.unpackHealthData(bArr, 4)
+Sau khi lấy dữ liệu, ứng dụng gửi lệnh deleteHealthHistoryData(1345, response) để xóa dữ liệu đã đồng bộ (nhưng bị chặn bởi hook)
+Đây là cách mà ứng dụng gửi lệnh để lấy dữ liệu giấc ngủ từ nhẫn.
+
+Feedback submitted
+34 minutes ago
+12 minutes ago
+7 minutes ago
+a minute ago
+Start with History Ctrl + ⏎
+Press Enter again to interrupt and send a new message
+Start with History Ctrl + ⏎
+
+
+
+Write
+Chat
+ChatWriteLegacy
+
+Cl

@@ -1,0 +1,604 @@
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 256 (0x0100)
+        └─ data.length = 8
+        └─ Dữ liệu đầy đủ:
+            e9 07 04 1b 08 0f 22 06
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 01 00
+        └─ Độ dài gói: 14 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 513 (0x0201)
+        └─ data.length = 2
+        └─ Dữ liệu đầy đủ:
+            47 46
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 02 01
+        └─ Độ dài gói: 8 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 539 (0x021b)
+        └─ data.length = 0
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 02 1b
+        └─ Độ dài gói: 6 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 512 (0x0200)
+        └─ data.length = 2
+        └─ Dữ liệu đầy đủ:
+            47 43
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 02 00
+        └─ Độ dài gói: 8 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 512 (0x0200)
+        └─ data.length = 2
+        └─ Dữ liệu đầy đủ:
+            47 43
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 02 00
+        └─ Độ dài gói: 8 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 512 (0x0200)
+        └─ data.length = 2
+        └─ Dữ liệu đầy đủ:
+            47 43
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 02 00
+        └─ Độ dài gói: 8 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 519 (0x0207)
+        └─ data.length = 2
+        └─ Dữ liệu đầy đủ:
+            43 46
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 02 07
+        └─ Độ dài gói: 8 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 1282 (0x0502)
+        └─ data.length = 0
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 05 02
+        └─ Độ dài gói: 6 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 1408 (0x0580)
+        └─ data.length = 1
+        └─ Dữ liệu đầy đủ:
+            00
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 05 80
+        └─ Độ dài gói: 7 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] DataUnpack.unpackHealthData() được gọi
+    └── Tham số đầu vào:
+        └── i2 (loại dữ liệu) = 2
+        └── bArr.length = 28
+        └── Dữ liệu đầy đủ:
+            08 37 a0 2f 10 3e a0 2f 1b 00 11 00 01 00 18 45 a0 2f 20 4c
+                        a0 2f c4 00 9b 00 08 00
+RAW: jsonString {"code":0,"data":[{"sportEndTime":1745690400000,"sportStep":27,"sportDistance":17,"sportStartTime":1745688600000,"sportCalorie":1},{"sportEndTime":1745694000000,"sportStep":196,"sportDistance":155,"sportStartTime":1745692200000,"sportCalorie":8}],"dataType":1282}
+    └── Kết quả trả về (cấu trúc):
+        └── code: 0
+        └── dataType: 1282
+    └── Không thể xử lý kết quả: not a function
+TypeError: not a function
+    at <anonymous> (C:\Users\Le Minh Tuan\Downloads\frida\debug_log.js:137)
+    at apply (native)
+    at re (frida/node_modules/frida-java-bridge/lib/class-factory.js:677)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/class-factory.js:655)
+
+[+] YCBTClient.deleteHealthHistoryData() được gọi
+    └─ Tham số đầu vào: type = 1344
+    └─ ĐÃ CHẶN XÓA DỮ LIỆU NHẪN (type = 1344)!
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 1284 (0x0504)
+        └─ data.length = 0
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 05 04
+        └─ Độ dài gói: 6 bytes
+    └─ YÊU CẦU DỮ LIỆU GIẤC NGỦ (Health_HistorySleep)
+    └─ Mô tả gói dữ liệu:
+        └─ 2 byte đầu: dataType (1284 = 0x0504)
+        └─ 2 byte tiếp: độ dài gói dữ liệu (bao gồm header và CRC)
+        └─ Dữ liệu (rỗng trong trường hợp này)
+        └─ 2 byte cuối: CRC16 để kiểm tra tính toàn vẹn
+    └─ Cấu trúc gói dữ liệu chi tiết:
+        └─ Byte 0: 05 (High byte của dataType)
+        └─ Byte 1: 04 (Low byte của dataType)
+        └─ Byte 2: 06 (Low byte của length)
+        └─ Byte 3: 00 (High byte của length)
+        └─ Không có dữ liệu
+        └─ Byte 4: Low byte của CRC16
+        └─ Byte 5: High byte của CRC16
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 1408 (0x0580)
+        └─ data.length = 1
+        └─ Dữ liệu đầy đủ:
+            00
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 05 80
+        └─ Độ dài gói: 7 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] DataUnpack.unpackHealthData() được gọi
+    └── Tham số đầu vào:
+        └── i2 (loại dữ liệu) = 4
+        └── bArr.length = 212
+        └── Dữ liệu đầy đủ:
+            af fa d4 00 a2 4d a0 2f 36 87 a0 2f ff ff e7 09 f8 0a a1 24
+                        f2 a2 4d a0 2f f9 04 00 f1 9c 52 a0 2f 5b 01 00 f3 f8 53 a0
+                        2f 73 01 00 f2 6c 55 a0 2f ec 04 00 f1 59 5a a0 2f 24 01 00
+                        f3 7e 5b a0 2f 77 03 00 f2 f5 5e a0 2f 82 04 00 f1 78 63 a0
+                        2f 9b 01 00 f3 14 65 a0 2f 1a 01 00 f2 2f 66 a0 2f 51 04 00
+                        f1 81 6a a0 2f 1c 02 00 f2 9d 6c a0 2f 73 04 00 f1 11 71 a0
+                        2f 3f 01 00 f3 51 72 a0 2f 20 01 00 f2 72 73 a0 2f 43 04 00
+                        f1 b6 77 a0 2f d9 00 00 f3 90 78 a0 2f c7 00 00 f2 58 79 a0
+                        2f a9 04 00 f1 02 7e a0 2f 6e 01 00 f3 71 7f a0 2f 7f 01 00
+                        f2 f1 80 a0 2f 86 04 00 f1 78 85 a0 2f 3c 01 00 f3 b5 86 a0
+                        2f 7d 00 00 f2 32 87 a0 2f 04 00 00
+RAW: jsonString {"code":0,"data":[{"wakeCount":0,"deepSleepCount":65535,"rapidEyeMovementTotal":2535,"lightSleepCount":0,"wakeDuration":0,"sleepData":[{"sleepStartTime":1745694386000,"sleepLen":1273,"sleepType":242},{"sleepStartTime":1745695660000,"sleepLen":347,"sleepType":241},{"sleepStartTime":1745696008000,"sleepLen":371,"sleepType":243},{"sleepStartTime":1745696380000,"sleepLen":1260,"sleepType":242},{"sleepStartTime":1745697641000,"sleepLen":292,"sleepType":241},{"sleepStartTime":1745697934000,"sleepLen":887,"sleepType":243},{"sleepStartTime":1745698821000,"sleepLen":1154,"sleepType":242},{"sleepStartTime":1745699976000,"sleepLen":411,"sleepType":241},{"sleepStartTime":1745700388000,"sleepLen":282,"sleepType":243},{"sleepStartTime":1745700671000,"sleepLen":1105,"sleepType":242},{"sleepStartTime":1745701777000,"sleepLen":540,"sleepType":241},{"sleepStartTime":1745702317000,"sleepLen":1139,"sleepType":242},{"sleepStartTime":1745703457000,"sleepLen":319,"sleepType":241},{"sleepStartTime":1745703777000,"sleepLen":288,"sleepType":243},{"sleepStartTime":1745704066000,"sleepLen":1091,"sleepType":242},{"sleepStartTime":1745705158000,"sleepLen":217,"sleepType":241},{"sleepStartTime":1745705376000,"sleepLen":199,"sleepType":243},{"sleepStartTime":1745705576000,"sleepLen":1193,"sleepType":242},{"sleepStartTime":1745706770000,"sleepLen":366,"sleepType":241},{"sleepStartTime":1745707137000,"sleepLen":383,"sleepType":243},{"sleepStartTime":1745707521000,"sleepLen":1158,"sleepType":242},{"sleepStartTime":1745708680000,"sleepLen":316,"sleepType":241},{"sleepStartTime":1745708997000,"sleepLen":125,"sleepType":243},{"sleepStartTime":1745709122000,"sleepLen":4,"sleepType":242}],"startTime":1745694386000,"lightSleepTotal":9377,"endTime":1745709126000,"deepSleepTotal":2808}],"dataType":1284}
+    └── Kết quả trả về (cấu trúc):
+        └── code: 0
+        └── dataType: 1284
+    └── Không thể xử lý kết quả: not a function
+TypeError: not a function
+    at <anonymous> (C:\Users\Le Minh Tuan\Downloads\frida\debug_log.js:137)
+    at apply (native)
+    at re (frida/node_modules/frida-java-bridge/lib/class-factory.js:677)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/class-factory.js:655)
+
+[+] YCBTClient.deleteHealthHistoryData() được gọi
+    └─ Tham số đầu vào: type = 1345
+    └─ ĐÃ CHẶN XÓA DỮ LIỆU NHẪN (type = 1345)!
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 1286 (0x0506)
+        └─ data.length = 0
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 05 06
+        └─ Độ dài gói: 6 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 1408 (0x0580)
+        └─ data.length = 1
+        └─ Dữ liệu đầy đủ:
+            00
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 05 80
+        └─ Độ dài gói: 7 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] DataUnpack.unpackHealthData() được gọi
+    └── Tham số đầu vào:
+        └── i2 (loại dữ liệu) = 6
+        └── bArr.length = 36
+        └── Dữ liệu đầy đủ:
+            20 3e a0 2f 00 55 39 4c a0 2f 00 54 4e 5a a0 2f 00 41 55 68
+                        a0 2f 00 33 66 76 a0 2f 00 32 75 84 a0 2f 00 32
+RAW: jsonString {"code":0,"data":[{"heartValue":85,"heartStartTime":1745690416000},{"heartValue":84,"heartStartTime":1745694025000},{"heartValue":65,"heartStartTime":1745697630000},{"heartValue":51,"heartStartTime":1745701221000},{"heartValue":50,"heartStartTime":1745704822000},{"heartValue":50,"heartStartTime":1745708421000}],"dataType":1286}
+    └── Kết quả trả về (cấu trúc):
+        └── code: 0
+        └── dataType: 1286
+    └── Không thể xử lý kết quả: not a function
+TypeError: not a function
+    at <anonymous> (C:\Users\Le Minh Tuan\Downloads\frida\debug_log.js:137)
+    at apply (native)
+    at re (frida/node_modules/frida-java-bridge/lib/class-factory.js:677)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/class-factory.js:655)
+
+[+] YCBTClient.deleteHealthHistoryData() được gọi
+    └─ Tham số đầu vào: type = 1346
+    └─ ĐÃ CHẶN XÓA DỮ LIỆU NHẪN (type = 1346)!
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 1288 (0x0508)
+        └─ data.length = 0
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 05 08
+        └─ Độ dài gói: 6 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 1408 (0x0580)
+        └─ data.length = 1
+        └─ Dữ liệu đầy đủ:
+            00
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 05 80
+        └─ Độ dài gói: 7 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] DataUnpack.unpackHealthData() được gọi
+    └── Tham số đầu vào:
+        └── i2 (loại dữ liệu) = 8
+        └── bArr.length = 48
+        └── Dữ liệu đầy đủ:
+            20 3e a0 2f 01 73 4c 55 39 4c a0 2f 01 71 4b 54 4e 5a a0 2f
+                        01 69 45 41 55 68 a0 2f 01 66 44 33 66 76 a0 2f 01 66 43 32
+                        75 84 a0 2f 01 64 43 32
+RAW: jsonString {"code":0,"data":[{"bloodStartTime":1745690416000,"bloodDBP":76,"isInflated":1,"bloodSBP":115},{"bloodStartTime":1745694025000,"bloodDBP":75,"isInflated":1,"bloodSBP":113},{"bloodStartTime":1745697630000,"bloodDBP":69,"isInflated":1,"bloodSBP":105},{"bloodStartTime":1745701221000,"bloodDBP":68,"isInflated":1,"bloodSBP":102},{"bloodStartTime":1745704822000,"bloodDBP":67,"isInflated":1,"bloodSBP":102},{"bloodStartTime":1745708421000,"bloodDBP":67,"isInflated":1,"bloodSBP":100}],"dataType":1288}
+    └── Kết quả trả về (cấu trúc):
+        └── code: 0
+        └── dataType: 1288
+    └── Không thể xử lý kết quả: not a function
+TypeError: not a function
+    at <anonymous> (C:\Users\Le Minh Tuan\Downloads\frida\debug_log.js:137)
+    at apply (native)
+    at re (frida/node_modules/frida-java-bridge/lib/class-factory.js:677)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/class-factory.js:655)
+
+[+] YCBTClient.deleteHealthHistoryData() được gọi
+    └─ Tham số đầu vào: type = 1347
+    └─ ĐÃ CHẶN XÓA DỮ LIỆU NHẪN (type = 1347)!
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 1289 (0x0509)
+        └─ data.length = 0
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 05 09
+        └─ Độ dài gói: 6 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 1408 (0x0580)
+        └─ data.length = 1
+        └─ Dữ liệu đầy đủ:
+            00
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 05 80
+        └─ Độ dài gói: 7 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] DataUnpack.unpackHealthData() được gọi
+    └── Tham số đầu vào:
+        └── i2 (loại dữ liệu) = 9
+        └── bArr.length = 120
+        └── Dữ liệu đầy đủ:
+            20 3e a0 2f 1b 00 55 73 4c 62 11 2e 02 00 0f 00 00 00 ff ae
+                        39 4c a0 2f df 00 54 71 4b 62 11 25 05 00 0f 00 00 00 ab 9b
+                        4e 5a a0 2f df 00 41 69 45 61 0d 2a 03 00 0f 00 00 00 75 1a
+                        55 68 a0 2f df 00 33 66 44 5b 0a 2b 04 00 0f 00 00 00 de d0
+                        66 76 a0 2f df 00 32 66 43 5a 0a 2b 05 00 0f 00 00 00 dd 9d
+                        75 84 a0 2f df 00 32 64 43 5a 0a 29 06 00 0f 00 00 00 2b ea
+RAW: jsonString {"code":0,"data":[{"heartValue":85,"hrvValue":46,"cvrrValue":2,"stepValue":27,"DBPValue":76,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":98,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745690416000,"SBPValue":115,"respiratoryRateValue":17},{"heartValue":84,"hrvValue":37,"cvrrValue":5,"stepValue":223,"DBPValue":75,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":98,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745694025000,"SBPValue":113,"respiratoryRateValue":17},{"heartValue":65,"hrvValue":42,"cvrrValue":3,"stepValue":223,"DBPValue":69,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":97,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745697630000,"SBPValue":105,"respiratoryRateValue":13},{"heartValue":51,"hrvValue":43,"cvrrValue":4,"stepValue":223,"DBPValue":68,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":91,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745701221000,"SBPValue":102,"respiratoryRateValue":10},{"heartValue":50,"hrvValue":43,"cvrrValue":5,"stepValue":223,"DBPValue":67,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":90,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745704822000,"SBPValue":102,"respiratoryRateValue":10},{"heartValue":50,"hrvValue":41,"cvrrValue":6,"stepValue":223,"DBPValue":67,"bodyFatFloatValue":0,"bloodSugarValue":0,"OOValue":90,"bodyFatIntValue":0,"tempIntValue":0,"tempFloatValue":15,"startTime":1745708421000,"SBPValue":100,"respiratoryRateValue":10}],"dataType":1289}
+    └── Kết quả trả về (cấu trúc):
+        └── code: 0
+        └── dataType: 1289
+    └── Không thể xử lý kết quả: not a function
+TypeError: not a function
+    at <anonymous> (C:\Users\Le Minh Tuan\Downloads\frida\debug_log.js:137)
+    at apply (native)
+    at re (frida/node_modules/frida-java-bridge/lib/class-factory.js:677)
+    at <anonymous> (frida/node_modules/frida-java-bridge/lib/class-factory.js:655)
+
+[+] YCBTClient.deleteHealthHistoryData() được gọi
+    └─ Tham số đầu vào: type = 1348
+    └─ ĐÃ CHẶN XÓA DỮ LIỆU NHẪN (type = 1348)!
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 552 (0x0228)
+        └─ data.length = 2
+        └─ Dữ liệu đầy đủ:
+            47 46
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 02 28
+        └─ Độ dài gói: 8 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 512 (0x0200)
+        └─ data.length = 2
+        └─ Dữ liệu đầy đủ:
+            47 43
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 02 00
+        └─ Độ dài gói: 8 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 265 (0x0109)
+        └─ data.length = 3
+        └─ Dữ liệu đầy đủ:
+            00 31 34
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 01 09
+        └─ Độ dài gói: 9 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 515 (0x0203)
+        └─ data.length = 2
+        └─ Dữ liệu đầy đủ:
+            47 50
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 02 03
+        └─ Độ dài gói: 8 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 777 (0x0309)
+        └─ data.length = 3
+        └─ Dữ liệu đầy đủ:
+            01 00 02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 03 09
+        └─ Độ dài gói: 9 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 512 (0x0200)
+        └─ data.length = 2
+        └─ Dữ liệu đầy đủ:
+            47 43
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 02 00
+        └─ Độ dài gói: 8 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 274 (0x0112)
+        └─ data.length = 1
+        └─ Dữ liệu đầy đủ:
+            0f
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 01 12
+        └─ Độ dài gói: 7 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 260 (0x0104)
+        └─ data.length = 6
+        └─ Dữ liệu đầy đủ:
+            00 00 00 00 00 00
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 01 04
+        └─ Độ dài gói: 12 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 268 (0x010c)
+        └─ data.length = 2
+        └─ Dữ liệu đầy đủ:
+            01 3c
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 01 0c
+        └─ Độ dài gói: 8 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 265 (0x0109)
+        └─ data.length = 3
+        └─ Dữ liệu đầy đủ:
+            00 31 34
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 01 09
+        └─ Độ dài gói: 9 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 515 (0x0203)
+        └─ data.length = 2
+        └─ Dữ liệu đầy đủ:
+            47 50
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 02 03
+        └─ Độ dài gói: 8 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 259 (0x0103)
+        └─ data.length = 4
+        └─ Dữ liệu đầy đủ:
+            aa 41 00 14
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 01 03
+        └─ Độ dài gói: 10 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 9999 (0x270f)
+        └─ data.length = 1
+        └─ Dữ liệu đầy đủ:
+            02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 27 0f
+        └─ Độ dài gói: 7 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 9999 (0x270f)
+        └─ data.length = 1
+        └─ Dữ liệu đầy đủ:
+            02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 27 0f
+        └─ Độ dài gói: 7 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 9999 (0x270f)
+        └─ data.length = 1
+        └─ Dữ liệu đầy đủ:
+            02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 27 0f
+        └─ Độ dài gói: 7 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 9999 (0x270f)
+        └─ data.length = 1
+        └─ Dữ liệu đầy đủ:
+            02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 27 0f
+        └─ Độ dài gói: 7 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 9999 (0x270f)
+        └─ data.length = 1
+        └─ Dữ liệu đầy đủ:
+            02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 27 0f
+        └─ Độ dài gói: 7 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 777 (0x0309)
+        └─ data.length = 3
+        └─ Dữ liệu đầy đủ:
+            01 00 02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 03 09
+        └─ Độ dài gói: 9 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 777 (0x0309)
+        └─ data.length = 3
+        └─ Dữ liệu đầy đủ:
+            01 00 02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 03 09
+        └─ Độ dài gói: 9 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 777 (0x0309)
+        └─ data.length = 3
+        └─ Dữ liệu đầy đủ:
+            01 00 02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 03 09
+        └─ Độ dài gói: 9 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 777 (0x0309)
+        └─ data.length = 3
+        └─ Dữ liệu đầy đủ:
+            01 00 02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 03 09
+        └─ Độ dài gói: 9 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 777 (0x0309)
+        └─ data.length = 3
+        └─ Dữ liệu đầy đủ:
+            01 00 02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 03 09
+        └─ Độ dài gói: 9 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 777 (0x0309)
+        └─ data.length = 3
+        └─ Dữ liệu đầy đủ:
+            01 00 02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 03 09
+        └─ Độ dài gói: 9 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+
+[+] YCBTClientImpl.sendData2Device() được gọi
+    └─ Tham số đầu vào:
+        └─ dataType = 777 (0x0309)
+        └─ data.length = 3
+        └─ Dữ liệu đầy đủ:
+            01 00 02
+    └─ Phân tích gói dữ liệu gửi đi:
+        └─ Header: 03 09
+        └─ Độ dài gói: 9 bytes
+    └─ Đã gửi dữ liệu đến thiết bị
+[21081111RG::PID::3346 ]->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
